@@ -15,11 +15,12 @@
  */
 
 import * as haystack from 'haystack-client';
-import {BlobContentType} from './blob_content_type';
 
-export interface BlobClient {
-    name(): string;
-    writeResponseBlob(span: haystack.Span, blobPayload: Buffer, contentType: BlobContentType, callback: () => void): void;
-    writeRequestBlob(span: haystack.Span, blobPayload: Buffer, contentType: BlobContentType, callback: () => void): void;
-    close(callback: () => void): void;
+export default class Utils {
+
+    static blobFilePath(span: haystack.Span, baseDir: string, blobType: string): string {
+        const spanCtx = span.context();
+        const parentSpanIdMarker = spanCtx.parentSpanId() || spanCtx.traceId();
+        return `${baseDir}/${span.serviceName()}_${spanCtx.traceId()}_${parentSpanIdMarker}_${spanCtx.spanId()}_${blobType}.log`;
+    }
 }

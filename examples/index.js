@@ -37,19 +37,17 @@ const logger = new MyLogger.default();
 /// Use `file` dispatcher for local development else use haystack_agent for environments like prod
 /// commonTags are the tags that are injected in every span emitted by your service.
 const config = {
-    serviceName: 'haystack-agent-test-app',
+    serviceName: 'dummy-service',
     commonTags: {
         'dummy-service-version': '0.1.0'
     },
     dispatcher: {
-        // type: 'file',
-        // filePath: 'logs/spans' //make sure the 'logs' directory exists
+         type: 'file',
+         filePath: 'logs/spans' //make sure the 'logs' directory exists
 
         // or
 
-        type: 'haystack_agent',
-        agentHost: '192.168.99.100',
-        agentPort: 35000
+        //type: 'haystack_agent',
     },
     logger: logger
 };
@@ -57,8 +55,8 @@ const config = {
 
 const blobConfig = {
     dispatcher: {
-        //type: 'raw_file', // use this mode for local development
-       // blobDirPath: 'logs' //make sure the 'logs' directory exists
+        type: 'raw_file', // use this mode for local development
+        blobDirPath: 'logs' //make sure the 'logs' directory exists
         
         // or
 
@@ -68,7 +66,7 @@ const blobConfig = {
         // or
 
         /* this still uses haystack agent but agent will not listen on grpc instead read the files from disk */
-        type: 'haystack_offline_agent'
+        // type: 'haystack_offline_agent'
 
     },
     logger: logger
@@ -86,7 +84,7 @@ const blobClient = initBlobClient(blobConfig);
 const serverSpan = tracer
     .startSpan('dummy-operation', {
         callerSpanContext: new SpanContext(
-            '2848fadd-fa16-4b3e-8ad1-6d73339bbee7',
+            '4848fadd-fa16-4b3e-8ad1-6d73339bbee7',
             '7a7cc5bf-796e-4527-9b42-13ae5766c6fd',
             'e96de653-ad6e-4ad5-b437-e81fd9d2d61d')
     })
