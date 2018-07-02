@@ -64,14 +64,15 @@ export default class OfflineAgentDispatcher implements Dispatcher {
     dispatch(span: haystack.Span, blobPayload: Buffer, blobtype: string, contenttype: BlobContentType, callback: (error) => void): void {
         this._ensureDirectoryExists(span, blobDir => {
             const blobFilePath = Utils.blobFilePath(span, blobDir, blobtype);
-            console.log(blobFilePath);
+
+            const requestId = span.context().parentSpanId() || span.context().traceId();
 
             const blobWithMetadata = {
                 client: span.serviceName(),
                 timestamp: Date.now(),
                 transactionid: span.context().traceId(),
                 eventid: span.context().spanId(),
-                requestid: span.context().parentSpanId(),
+                requestid: requestId,
                 blobType: blobtype,
                 contentType: contenttype.toString(),
                 content: base64.encode(blobPayload)
