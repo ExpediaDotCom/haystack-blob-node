@@ -1,0 +1,36 @@
+{
+  "name": "haystack-blobs",
+  "version": "0.1.0",
+  "description": "Haystack client for dispatching blobs to haystack",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "license": "Apache-2.0",
+  "keywords": [],
+  "author": "Haystack <haystack@expedia.com>",
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ExpediaDotCom/haystack-blob-node.git"
+  },
+  "scripts": {
+    "lint": "tslint -t msbuild -c tslint.json 'src/**/*.ts'"
+  },
+  "contributors": [
+    "Haystack <haystack@expedia.com>"
+  ],
+  "dependencies": {
+    "haystack-client": "^0.1.0",
+    "google-protobuf": "^3.0.0",
+    "grpc": "^1.9.0",
+    "base-64": "^0.1.0",
+    "dateformat": "3.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^10.3.4",
+    "@types/dateformat": "1.0.1",
+    "typescript": "2.9.2",
+    "grpc-tools": "1.6.6",
+    "tslint": "^5.0.0"
+  }
+}
