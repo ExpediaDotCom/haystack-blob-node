@@ -61,7 +61,7 @@ const blobConfig = {
         // or
 
         /* this uses haystack-agent listening on grpc port. You don need to worry about the hostname:port as defaults should work*/
-        // type: 'haystack_agent'
+        //type: 'haystack_agent',
 
         // or
 
