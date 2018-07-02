@@ -1,4 +1,5 @@
-[![Build Status](https://primer.builds.tools.expedia.com/view/All/job/haystack-blob-node-master/badge/icon)](https://primer.builds.tools.expedia.com/view/All/job/haystack-blob-node-master/)
+[![Build Status](https://travis-ci.org/ExpediaDotCom/haystack-blob-node.svg?branch=master)](https://travis-ci.org/ExpediaDotCom/haystack-blob-node)
+[![License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://github.com/ExpediaDotCom/haystack/blob/master/LICENSE)
 
 # Haystack Blobs Library 
 
