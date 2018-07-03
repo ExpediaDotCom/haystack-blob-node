@@ -11,6 +11,12 @@ endif
 check-node-version:
 	@$(MIN_NODE_VER_FOUND) || echo Build requires minimum Node $(MIN_NODE_VER).x
 
+.PHONY: prepare_publish
+prepare_publish:
+	node scripts/version.js
+	cp package.json dist/
+	cp README.md dist/
+
 .PHONY: build
 build: check-node-version npm_install idl_codegen tslint
 	rm -rf ./dist/
