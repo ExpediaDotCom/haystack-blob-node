@@ -21,6 +21,7 @@ prepare_publish:
 build: check-node-version npm_install idl_codegen tslint
 	rm -rf ./dist/
 	./node_modules/typescript/bin/tsc -p tsconfig.json
+	cp -a src/proto_idl_codegen dist/
 	cp package.json dist/
 
 .PHONY: tslint
