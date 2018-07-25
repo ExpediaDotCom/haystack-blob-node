@@ -1,6 +1,6 @@
 {
   "name": "haystack-blobs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Haystack client for dispatching blobs to haystack",
   "engines": {
     "node": ">=4.0.0"
