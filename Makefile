@@ -42,5 +42,5 @@ example: build
 	rm -rf logs
 	mkdir -p logs
 	node examples/index.js
-	cat logs/dummy-service/dummy-service_4848fadd-fa16-4b3e-8ad1-6d73339bbee7_e96de653-ad6e-4ad5-b437-e81fd9d2d61d_7a7cc5bf-796e-4527-9b42-13ae5766c6fd_REQUEST.log
-	cat logs/dummy-service/dummy-service_4848fadd-fa16-4b3e-8ad1-6d73339bbee7_e96de653-ad6e-4ad5-b437-e81fd9d2d61d_7a7cc5bf-796e-4527-9b42-13ae5766c6fd_RESPONSE.log
+	cat logs/dummy-service/dummy-service_4848fadd-fa16-4b3e-8ad1-6d73339bbee7_*_REQUEST.log
+	cat logs/dummy-service/dummy-service_4848fadd-fa16-4b3e-8ad1-6d73339bbee7_*_RESPONSE.log
