@@ -66,11 +66,11 @@ export default class RemoteDispatcher implements Dispatcher {
     private _convertToProtoBlob(span: haystack.Span, blobPayload: Buffer, blobType: string, contentType: BlobContentType): any {
         const protoBlob = new messages.Blob();
         const spanCtx = span.context();
-        const requestId = spanCtx.parentSpanId() || spanCtx.traceId();
+        const requestId = spanCtx.parentSpanId || spanCtx.traceId;
 
         protoBlob.setClient(span.serviceName());
-        protoBlob.setTransactionid(spanCtx.traceId());
-        protoBlob.setEventid(spanCtx.spanId());
+        protoBlob.setTransactionid(spanCtx.traceId);
+        protoBlob.setEventid(spanCtx.spanId);
         protoBlob.setRequestid(requestId);
         protoBlob.setTimestamp(Date.now());
         protoBlob.setContent(blobPayload);

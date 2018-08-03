@@ -20,7 +20,7 @@ export default class Utils {
 
     static blobFilePath(span: haystack.Span, baseDir: string, blobType: string): string {
         const spanCtx = span.context();
-        const parentSpanIdMarker = spanCtx.parentSpanId() || spanCtx.traceId();
-        return `${baseDir}/${span.serviceName()}_${spanCtx.traceId()}_${parentSpanIdMarker}_${spanCtx.spanId()}_${blobType}.log`;
+        const parentSpanIdMarker = spanCtx.parentSpanId || spanCtx.traceId;
+        return `${baseDir}/${span.serviceName()}_${spanCtx.traceId}_${parentSpanIdMarker}_${spanCtx.spanId}_${blobType}.log`;
     }
 }

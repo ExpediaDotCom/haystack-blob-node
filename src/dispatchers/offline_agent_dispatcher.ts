@@ -65,13 +65,13 @@ export default class OfflineAgentDispatcher implements Dispatcher {
         this._ensureDirectoryExists(span, blobDir => {
             const blobFilePath = Utils.blobFilePath(span, blobDir, blobtype);
             const spanCtx = span.context();
-            const requestId = spanCtx.parentSpanId() || spanCtx.traceId();
+            const requestId = spanCtx.parentSpanId || spanCtx.traceId;
 
             const blobWithMetadata = {
                 client: span.serviceName(),
                 timestamp: Date.now(),
-                transactionid: spanCtx.traceId(),
-                eventid: spanCtx.spanId(),
+                transactionid: spanCtx.traceId,
+                eventid: spanCtx.spanId,
                 requestid: requestId,
                 blobType: blobtype,
                 contentType: contenttype.toString(),
