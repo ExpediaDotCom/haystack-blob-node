@@ -50,8 +50,8 @@ export default class BlobClientImpl implements BlobClient {
             throw new Error(`Fail to write the blob to an already closed haystack span`);
         }
         const spanCtx = span.context();
-        const parentSpanId = spanCtx.parentSpanId() || spanCtx.traceId();
-        span.setTag(`Blob-${blobType}`, `/getBlob/${span.serviceName()}/${blobType}/${spanCtx.traceId()}/${parentSpanId}/${spanCtx.spanId()}`);
+        const parentSpanId = spanCtx.parentSpanId || spanCtx.traceId;
+        span.setTag(`Blob-${blobType}`, `/getBlob/${span.serviceName()}/${blobType}/${spanCtx.traceId}/${parentSpanId}/${spanCtx.spanId}`);
         this._dispatcher.dispatch(span, blobPayload, blobType, contentType, callback);
     }
 }
